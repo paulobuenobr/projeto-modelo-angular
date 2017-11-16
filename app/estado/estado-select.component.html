@@ -1,0 +1,8 @@
+<!-- NÃO FUNCIONA -->
+<div class="formulario">
+    <label for="sel-est">Estado:</label>
+    <select [(ngModel)]="selectedEstado.id" (change)="onSelect($event.target.value)" id="sel-est" class="p">
+    <option value="0">{{selectMessage}}</option>
+        <option *ngFor=" let estado of estados" value={{estado.id}}>{{estado.nome}}</option>
+    </select>
+</div>

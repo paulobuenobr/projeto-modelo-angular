@@ -1,0 +1,19 @@
+<h1>Cadastro de Pessoa</h1>
+<div class="formulario" ngForm #formPessoa="ngForm">
+    <label>Nome: *</label>
+    <input type="text" required name="nome" [(ngModel)]="pessoa.nome" class="g"/>
+    <label>CPF:</label>
+    <input type="text" [(ngModel)]="pessoa.cpf" id="cpf" required name="cpf" class="p">
+    <!--<estado-select></estado-select>-->
+    <!--<cidade-select></cidade-select>-->
+    <estado-cidade-select></estado-cidade-select>
+    <label for="dataN">Data de nascimento:</label>
+    <input type="text" [(ngModel)]="pessoa.dataNascimento" id="dataN" required name="dataN" class="p"/>
+    <!--<custom-date-picker #pessoaDataNascimento id="dataN"></custom-date-picker>-->
+    <!--<custom-date-picker2 #pessoaDataNascimento id="dataN"></custom-date-picker2>-->
+    <label>Maior de idade?</label>
+    <ui-switch color="#369" [(ngModel)]="pessoa.maiorIdade" id="mi" name="mi"></ui-switch>
+</div>
+<div>
+    <button (click)="savePessoa()" [disabled]="!formPessoa.valid" [ngClass]="{disabled : !isValid}" >Salvar</button>
+</div>
