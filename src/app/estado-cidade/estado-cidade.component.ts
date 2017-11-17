@@ -10,7 +10,7 @@ import {MatFormFieldControl} from '@angular/material';
     selector: 'app-estado-cidade-select',
     templateUrl: './estado-cidade.component.html',
     styleUrls: ['../pessoa/pessoa.component.css'],
-    providers: [EstadoService, CidadeService, {provide: MatFormFieldControl, useExisting: EstadoCidadeComponent}]
+    providers: [EstadoService, CidadeService]
 })
 
 @Injectable()
@@ -21,8 +21,6 @@ export class EstadoCidadeComponent implements OnInit {
     selectedCidade: Cidade = new Cidade(0, '', null);
     estados: Estado[];
     cidades: Cidade[];
-    selectEstadoMessage = '--Selecione o estado--';
-    selectCidadeMessage = '--Selecione a cidade--';
 
     constructor(private estadoService: EstadoService, private cidadeService: CidadeService) {
     }
@@ -35,12 +33,12 @@ export class EstadoCidadeComponent implements OnInit {
     }
 
     onSelectEstado(idEstado) {
-        this.cidadeService.getCidadesEstado(idEstado)
+        this.cidadeService.getCidadesEstado(Number(idEstado))
             .subscribe(cidades => this.cidades = cidades);
     }
 
     onSelectCidade(idCidade) {
-        this.cidadeService.getCidade(idCidade)
+        this.cidadeService.getCidade(Number(idCidade))
             .subscribe(cidade => this.selectedCidade = cidade);
     }
 

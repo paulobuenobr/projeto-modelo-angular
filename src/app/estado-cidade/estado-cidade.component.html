@@ -1,19 +1,17 @@
 <div class="formulario">
   <div>
-    <mat-form-field>
-      <mat-select [(ngModel)]="selectedEstado.id" (change)="onSelectEstado($event.target.value)" id="sel-est"
+    <mat-form-field class="example-full-width">
+      <mat-select [(ngModel)]="selectedEstado.id" (ngModelChange)="onSelectEstado($event)" id="sel-est"
                   placeholder="Estado" name="estado" required>
-        <mat-option [value]="0">{{selectEstadoMessage}}</mat-option>
         <mat-option *ngFor="let estado of estados" value={{estado.id}}>{{estado.nome}}</mat-option>
       </mat-select>
       <mat-error>Estado é obrigatório</mat-error>
     </mat-form-field>
   </div>
   <div>
-    <mat-form-field>
-      <mat-select [(ngModel)]="selectedCidade.id" (change)="onSelectCidade($event.target.value)" id="sel-cid"
-                  placeholder="Cidade" *ngIf="selectedEstado.id !== 0" name="cidade" required>
-        <mat-option *ngIf='selectedEstado.id == 0' [value]="0">{{selectCidadeMessage}}</mat-option>
+    <mat-form-field  class="example-full-width">
+      <mat-select [(ngModel)]="selectedCidade.id" (ngModelChange)="onSelectCidade($event)" id="sel-cid"
+                  placeholder="Cidade" name="cidade" required>
         <mat-option *ngFor="let cidade of cidades " value={{cidade.id}}>{{cidade.nome}}</mat-option>
       </mat-select>
       <mat-error>Cidade é obrigatória</mat-error>
