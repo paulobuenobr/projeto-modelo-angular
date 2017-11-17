@@ -3,13 +3,14 @@ import {EstadoService} from '../estado/estado.service';
 import {Estado} from '../estado/estado';
 import {Cidade} from '../cidade/cidade';
 import {CidadeService} from '../cidade/cidade.service';
+import {MatFormFieldControl} from '@angular/material';
 
 @Component({
     moduleId: module.id,
     selector: 'app-estado-cidade-select',
     templateUrl: './estado-cidade.component.html',
     styleUrls: ['../pessoa/pessoa.component.css'],
-    providers: [EstadoService, CidadeService]
+    providers: [EstadoService, CidadeService, {provide: MatFormFieldControl, useExisting: EstadoCidadeComponent}]
 })
 
 @Injectable()
