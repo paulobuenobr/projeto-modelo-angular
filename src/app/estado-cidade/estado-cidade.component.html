@@ -1,0 +1,14 @@
+<div class="formulario">
+  <mat-form-field>
+    <mat-select [(ngModel)]="selectedEstado.id" (change)="onSelectEstado($event.target.value)" id="sel-est" placeholder="Estado">
+      <mat-option value="0">{{selectEstadoMessage}}</mat-option>
+      <mat-option *ngFor="let estado of estados" value={{estado.id}}>{{estado.nome}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div>
+    <mat-select [(ngModel)]="selectedCidade.id" (change)="onSelectCidade($event.target.value)" id="sel-cid"  placeholder="Cidade" *ngIf="selectedEstado.id !== 0">
+      <mat-option *ngIf='selectedEstado.id == 0' value="0">{{selectCidadeMessage}}</mat-option>
+      <mat-option *ngFor="let cidade of cidades " value={{cidade.id}}>{{cidade.nome}}</mat-option>
+    </mat-select>
+  </div>
+</div>

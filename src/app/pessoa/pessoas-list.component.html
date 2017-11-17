@@ -1,0 +1,17 @@
+<h1>Lista de Pessoas</h1>
+<div>
+    <input style="margin-left: 0.5em; width: 24em" type="text" [(ngModel)]="queryString" id="search" placeholder="Digite para filtrar">
+</div>
+<div>
+    <ul class="pessoas">
+        <li *ngFor="let pessoa of pessoas | PessoasFilter: queryString"
+            [class.selected]="pessoa === selectedPessoa"
+            (click)="onSelect(pessoa); gotoPessoa()">
+            <span class="badge">{{pessoa.cpf}}</span> {{pessoa.nome}}
+            <button class="delete"
+                    (click)="deletePessoa(pessoa); $event.stopPropagation()">x
+            </button>
+        </li>
+    </ul>
+</div>
+

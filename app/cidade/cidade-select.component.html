@@ -1,8 +1,0 @@
-<!-- NÃO FUNCIONA -->
-<div class="formulario">
-    <label for="sel-cid">Cidade:</label>
-    <select [(ngModel)]="selectedCidade.id" id="sel-cid" class="p">
-        <option value="0">{{selectMessage}}</option>
-        <option *ngFor=" let cidade of cidades | async" value={{cidade.id}}>{{cidade.nome}}</option>
-    </select>
-</div>
